@@ -19,5 +19,5 @@ const ExpenseFilter = (props) =>{
             </div>
         </div>
     );
-}
+};
 export default ExpenseFilter;
