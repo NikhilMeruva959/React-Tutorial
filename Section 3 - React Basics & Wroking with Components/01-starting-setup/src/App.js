@@ -24,6 +24,7 @@ const dummyExpenses = [
   },
 ];
 function App() {
+  //dummyExpenses is dumy values
   const [expenses, setExpenses] = useState(dummyExpenses)
 
   const addExpenseHandler = (expense) => {
@@ -37,7 +38,6 @@ function App() {
     // console.log('In App.js');
     // console.log(expense);
   }
-
 
   return (
     <div>

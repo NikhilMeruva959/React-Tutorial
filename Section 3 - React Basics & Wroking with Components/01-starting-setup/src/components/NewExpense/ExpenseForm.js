@@ -60,12 +60,12 @@ const ExpenseForm = (props) => {
       date: new Date(enteredDate),
     };
 
-    //So expenseSata will go to NewExpense.js becuase of props.onSaveExpenseData(expenseData);
+    //So expenseData will go to NewExpense.js becuase of props.onSaveExpenseData(expenseData);
     // child to parent passing information relationship
     props.onSaveExpenseData(expenseData);
     setEnteredTitle("");
     setEnteredAmount("");
-    setEnteredDate("");
+    setEnteredDate(""); 
   };
 
   return (
@@ -103,6 +103,7 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={props.onCancel}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
