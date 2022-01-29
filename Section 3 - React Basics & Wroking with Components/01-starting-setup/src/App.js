@@ -41,7 +41,6 @@ function App() {
 
   return (
     <div>
-      <h2>Let's get started!</h2>
       <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses arr = {expenses}></Expenses>
     </div>
