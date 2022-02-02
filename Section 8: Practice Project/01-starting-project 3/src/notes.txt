@@ -1,0 +1,11 @@
+JSX Limitations:
+- you cant return more than one "root" JSX element
+- Also isn't valid in Javascript
+- React wants key when working an array of JSX elements 
+
+React.Fragment:
+- can be an alternative to a wrapper
+
+Refs:
+- allows access to other DOM elements and work with them
+
