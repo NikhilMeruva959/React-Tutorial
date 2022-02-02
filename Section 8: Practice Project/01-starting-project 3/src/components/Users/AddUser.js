@@ -19,7 +19,7 @@ const AddUser = (props) => {
   const addUserHandler = (event) => {
     event.preventDefault();
     
-    // console.log(nameInputRef.current.value);
+    console.log(nameInputRef.current.value + "   " + ageInputRef.current.value);
     const enteredName = nameInputRef.current.value;
     const enteredUserAge = ageInputRef.current.value;
 
@@ -55,6 +55,8 @@ const AddUser = (props) => {
         <form onSubmit={addUserHandler}>
           <label htmlFor="username">Username</label>
           {/* //value={enteredUserName} resets the form because of setEnteredAge(''); and setEnteredUserName(''); */}
+          {/* Uncontolled components: if we are acessing elements with ref 
+              Uncontrolled because we are not controlling the state of the component in React*/}
           <input
             id="username"
             type="text"
