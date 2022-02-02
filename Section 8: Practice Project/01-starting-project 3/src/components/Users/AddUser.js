@@ -48,7 +48,7 @@ const AddUser = (props) => {
   return (
     <div>
       {error && (<ErrorModal title={error.title} message={error.message} onConfirm={errorHandler}/>)}
-      <Card cssClass={classes.input}>
+      <Card className={classes.input}>
         <form onSubmit={addUserHandler}>
           <label htmlFor="username">Username</label>
           {/* //value={enteredUserName} resets the form because of setEnteredAge(''); and setEnteredUserName(''); */}
