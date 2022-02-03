@@ -1,0 +1,23 @@
+- Main job: Render UI and React to User Input
+    - Evaluate & Render JSX
+    - Manage State & Props
+    - React to (User Events & Props)
+    - Re-evaluate Component upon State & prop Changes
+- All "baked into" React via the "tools" and features covered in this course (i.e useSate() Hook, Props, etc.)
+
+What is a Effect (or a "Side Effect"):
+    - Side Effects: Anything else
+        - Store Data in Browser Storage
+        - Send Http Requests to Backend Servers
+        - Set & Manage Timers
+        - These tasks must happen outside of the normal component evaluation
+          and render cycle - especially since they might block/delay rendering (e.g Http requests)
+
+Handling Side Effects with the useEffect() Hook:
+    useEffect(() => { ... }, [dependencies]);
+        - () => { ... } is a function that should be executed AFTER every component
+          evaluation IF the specified dependies changed
+        - Your side effect code goes into this function
+
+        - [dependencies] Dependencies of this effect - the function only runs if the dependencies changed
+        - Specify your dependencies of your function here
