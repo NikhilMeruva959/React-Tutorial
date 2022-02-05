@@ -21,3 +21,18 @@ Handling Side Effects with the useEffect() Hook:
 
         - [dependencies] Dependencies of this effect - the function only runs if the dependencies changed
         - Specify your dependencies of your function here
+
+useReducer() for state Management:
+- when you have more complex state - Ex. multiple statesm multiple ways of changing it, or dependencies to other states
+- useState() then become hard or error-prone to useSate
+- useReducer() can be used as a replacement for useState() if you need "more powerful state managment"
+
+Using useReducer():
+- const [state, dispatchFn] = useReducer(reducerFn, intialState, initFn);
+   - state: snapshot used in the component re-render / re-evaluation cycle
+   - dispatchFn: function that can be used to dispatch a new action (i.e. trigger an update of the state)
+   - reducerFn: (prevState, action) => newState
+      - function that is triggered automatically once an action is dispatched (via dispatchFn())
+      - it recieves the latest state snapshot and should return the new, updated state
+   - intialState: initial state
+   - initFn: functionto set the initial state programmatically
