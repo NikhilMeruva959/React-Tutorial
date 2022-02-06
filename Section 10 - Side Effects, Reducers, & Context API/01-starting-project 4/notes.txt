@@ -22,6 +22,29 @@ Handling Side Effects with the useEffect() Hook:
         - [dependencies] Dependencies of this effect - the function only runs if the dependencies changed
         - Specify your dependencies of your function here
 
+UseEffect() Best Practice:
+
+  const { someProperty } = someObject;
+  useEffect(() => {
+    // code that only uses someProperty ...
+  }, [someProperty]);
+
+  or 
+
+  useEffect(() => {
+  // code that only uses someProperty ...
+  }, [someObject.someProperty]);
+
+  DO NOT DO THIS:
+
+  useEffect(() => {
+  // code that only uses someProperty ...
+  }, [someObject]);
+
+  - Because the effect function would re-run whenever ANY property of someObject changes - not just the one property(someProperty) our effect might depend on.
+
+
+
 useReducer() for state Management:
 - when you have more complex state - Ex. multiple statesm multiple ways of changing it, or dependencies to other states
 - useState() then become hard or error-prone to useSate
@@ -36,3 +59,18 @@ Using useReducer():
       - it recieves the latest state snapshot and should return the new, updated state
    - intialState: initial state
    - initFn: functionto set the initial state programmatically
+
+
+Summary of useState vs useReducer():
+- Generally, you'll know when you need useReducer() (-> when using useState() becomes combersome or you're
+  getting a lot of bugs / unintended behaviors)
+
+  useState():
+  - main state managment "tool"
+  - great for independent pieces of state / data 
+  - great if state updates are easy and limited to a few kinds of updates
+
+  useReducer():
+  - great if you need "more power"
+  - should be considered if you have related pieces of state / data
+  - can be helpful if you have more complex state updates

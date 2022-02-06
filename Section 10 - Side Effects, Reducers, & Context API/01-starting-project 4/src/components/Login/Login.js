@@ -46,6 +46,8 @@ const Login = (props) => {
     };
   }, []);
 
+  // Object destructiong to pull out certain properties
+  // From emailState, we are extracting and pulling out isValid and storing in a constant emailIsValid
   const { isValid: emailIsValid } = emailState;
   const { isValid: passwordIsValid } = passwordState;
 
@@ -53,6 +55,7 @@ const Login = (props) => {
     const identifier = setTimeout(() => {
       console.log('Checking form validity!');
       setFormIsValid(
+        // instead of emailState.isValid and passwordState.isValid
         emailIsValid && passwordIsValid
       );
     }, 500);
