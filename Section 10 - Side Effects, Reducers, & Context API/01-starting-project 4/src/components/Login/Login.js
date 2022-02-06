@@ -10,19 +10,19 @@ const emailReducer = (state, action) => {
   }
   if(action.type === 'INPUT_BLUR'){
     // state.value gets last snapshot
-    return {value: state.values, isValid: state.val.includes("@")};
+    return {value: state.value, isValid: state.value.includes("@")};
   }
   return { value: '', isValid: false};
 };
 
 
-const passowordReducer = (state, action) => {
+const passwordReducer = (state, action) => {
   if(action.type === 'USER_INPUT'){
-    return { value: action.val, isValid: action.val.length > 6};
+    return {value: action.val, isValid: action.val.trim().length > 6};
   }
   if(action.type === 'INPUT_BLUR'){
     // state.value gets last snapshot
-    return {value: state.values, isValid: state.val.length > 6};
+    return {value: state.value, isValid: state.value.trim().length > 6};
   }
 
   return { value: '', isValid: false};
@@ -35,14 +35,14 @@ const Login = (props) => {
   // const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
-  const [emailState, dispatchEmail] = useReducer(emailReducer, {value: '', isValid: false});
-  const [passwordState, dispatchPassword] = useReducer(passowordReducer, {value: '', isValid: false});
+  const [emailState, dispatchEmail] = useReducer(emailReducer, {value: '', isValid: null});
+  const [passwordState, dispatchPassword] = useReducer(passwordReducer, {value: '', isValid: null});
 
   useEffect(() => {
-    console.log("Running useEffect");
+    console.log("EFFECT RUNNING");
 
     return () => {
-      console.log("EFFECT Cleanup");
+      console.log("EFFECT CLEANUP");
     };
   }, []);
 
@@ -71,7 +71,7 @@ const Login = (props) => {
     dispatchEmail({type: 'USER_INPUT', val: event.target.value});
 
     // setFormIsValid(
-    //   event.target.value.includes("@") && passowordState.trim().length > 6
+    //   event.target.value.includes("@") && passwordState.trim().length > 6
     // );
   };
 
