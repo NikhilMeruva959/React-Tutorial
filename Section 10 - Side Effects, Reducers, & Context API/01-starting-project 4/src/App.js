@@ -17,8 +17,9 @@ function App() {
       //   onLogout: logoutHandler
       // }}>
       <React.Fragment>
-        <MainHeader  onLogout={logoutHandler} />
+        <MainHeader/>
         <main>
+          {/* Because we are directly using the isLoggedIn in Login and Home and not just fowarding it */}
           {!context.isLoggedIn && <Login/>}
           {context.isLoggedIn && <Home/>}
         </main>
