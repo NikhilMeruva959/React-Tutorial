@@ -23,6 +23,7 @@ const Navigation = () => {
             )}
             {context.isLoggedIn && (
               <li>
+                {/* onLogout because auth-context.js has onLogout: () => {} */}
                 <button onClick={context.onLogout}>Logout</button>
               </li>
             )}
