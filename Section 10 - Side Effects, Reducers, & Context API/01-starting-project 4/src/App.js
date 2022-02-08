@@ -9,6 +9,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   
 // Executed AFTER every component reevaluation, but only if dependecies change
+// Would only run once, when app starts, because dependcies dont change
   useEffect(() => {
     const storedUderLoggedInInformation = localStorage.getItem('isLoggedIn');
     
@@ -30,6 +31,7 @@ function App() {
   };
 
   return (
+    // All children have acess to AuthContext its values
       <AuthContext.Provider value={{
         isLoggedIn: isLoggedIn,
         onLogout: logoutHandler

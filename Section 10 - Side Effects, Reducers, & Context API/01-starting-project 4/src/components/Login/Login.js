@@ -35,12 +35,15 @@ const Login = (props) => {
   // const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
+  
   const [emailState, dispatchEmail] = useReducer(emailReducer, {value: '', isValid: null});
   const [passwordState, dispatchPassword] = useReducer(passwordReducer, {value: '', isValid: null});
 
+  // If no dependicies, then infinite loop
   useEffect(() => {
     console.log("EFFECT RUNNING");
 
+    //Since component is removed from the DOM
     return () => {
       console.log("EFFECT CLEANUP");
     };
@@ -60,11 +63,17 @@ const Login = (props) => {
       );
     }, 500);
 
+    // Cleanup function that will run before useEffect executs this function in time
+    // Except for the 1st time, this cleanup function will run
+    // Also will run whenever the component unmounts from DOM
     return () => {
       console.log('CLEANUP');
+      // clearTimeout(identifier) will clear timer set before this, so new timer will be set
+      // the above will run once, so say i keep typing, it will continously reset the timer
       clearTimeout(identifier);
     };
   }, [emailIsValid, passwordIsValid]);
+  // will run if emailIsValid, passwordIsValid chnage
 
   //this effect will only run once when the component is rendered
 
