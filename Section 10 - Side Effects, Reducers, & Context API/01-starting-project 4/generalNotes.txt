@@ -74,3 +74,10 @@ Summary of useState vs useReducer():
   - great if you need "more power"
   - should be considered if you have related pieces of state / data
   - can be helpful if you have more complex state updates
+
+  React Context Limitations:
+  - Ex. Button, we are using it to log user in and log user out 
+    - using context would be bad
+  - props for configuration, context for state managment for components
+  - React Context NOT optimized for high frequency changes -> Redux
+  - Component should still be configurable via props and short prop chains
