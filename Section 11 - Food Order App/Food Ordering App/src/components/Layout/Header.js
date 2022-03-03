@@ -2,12 +2,13 @@ import React from 'react';
 
 import mealsImage from '../../assets/img7.jpeg';
 import classes from './Header.module.css';
+import HeaderCardButton from './HeaderCardButton';
 
 const Header = (props) => {
     return <React.Fragment>
         <header className={classes.header}>
             <h1>ReactMealse</h1>
-            <button>Cart</button>
+            <HeaderCardButton/>
         </header>
         {/* Because main-image has a dash in it */}
         <div className={classes['main-image']}>
