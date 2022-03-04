@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./MealItem.module.css";
+import MealItemForm from "./MealItmeForm";
 
 const MealItem = (props) => {
     //formatting price to 2 decimal places
@@ -13,7 +14,7 @@ const MealItem = (props) => {
             <div className={classes.price}>{price}</div>
         </div>
         <div>
-
+            <MealItemForm/>
         </div>
     </li>
     );
