@@ -6,7 +6,8 @@ const Input = (props) => {
     //For in Javascript: htmlFor attribute is used to get the HTML for the given HTML elements.
     return <div className={classes.input}>
         <label htmlFor={props.input.id}>{props.label}</label>
-        <input {...props.input} />
+        <input {...props.input} /> 
+        {/* // ...props.input ensures all key value pairs are added as props */}
     </div>
 }
 export default Input;
