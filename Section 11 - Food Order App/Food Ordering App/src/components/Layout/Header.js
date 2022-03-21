@@ -8,7 +8,7 @@ const Header = (props) => {
     return <React.Fragment>
         <header className={classes.header}>
             <h1>ReactMealse</h1>
-            <HeaderCardButton/>
+            <HeaderCardButton onClick={props.onShowCart}/>
         </header>
         {/* Because main-image has a dash in it */}
         <div className={classes['main-image']}>
