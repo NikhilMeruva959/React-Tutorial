@@ -5,9 +5,9 @@ import classes from './Header.module.css';
 import HeaderCardButton from './HeaderCardButton';
 
 const Header = (props) => {
-    return <React.Fragment>
+    return(<React.Fragment>
         <header className={classes.header}>
-            <h1>ReactMealse</h1>
+            <h1>ReactMeals</h1>
             <HeaderCardButton onClick={props.onShowCart}/>
         </header>
         {/* Because main-image has a dash in it */}
@@ -15,5 +15,6 @@ const Header = (props) => {
             <img src={mealsImage} alt="Food Banner" /> 
         </div>
     </React.Fragment>
+    );
 };
 export default Header;
