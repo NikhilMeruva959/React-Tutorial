@@ -34,11 +34,37 @@ const cartReducer = (state, action) => {
             // concat doesn't add to array, it return new array
             updatedItems = state.items.concat(action.item);
         }
+        return {
+            items: updatedItems,
+            totalAmount: updatedTotAmount,
+        }
+    }
+    if(action.type === 'REMOVE'){
+
+        //return true if item curr is same id of item we are adding
+        const existingCartItemIndex = state.items.findIndex(
+            (item) => item.id === action.item.id
+        );
+        //returns existingCartItem with the index
+        //will be null if not there
+        const existingCartItem = state.items[existingCartItemIndex];
+        //Simply remove one item of type
+        const updatedTotAmount = state.totalAmount - existingCartItem.price;
+
+        let updatedItems;
+
+        if(existingCartItem.amount===1){
+            updatedItems = state.items.filter(item => item.id !== action.id);
+        } else{
+            const updatedItem = {...existingCartItem, amount:existingCartItem.amount-1};
+            updatedItems = [...state.items];
+            updatedItems[existingCartItemIndex] = updatedItem;
+        }
 
         return {
             items: updatedItems,
-            totalAmount: updatedTotAmount
-        }
+            totalAmount: updatedTotAmount,
+        };
     }
     return defaultCardState;
 };
