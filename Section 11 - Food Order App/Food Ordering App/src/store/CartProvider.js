@@ -9,9 +9,32 @@ const defaultCardState = {
 
 const cartReducer = (state, action) => {
     if(action.type === 'ADD'){
-        // concat doesn't add to array, it return new array
-        const updatedItems = state.items.concat(action.item);
         const updatedTotAmount = state.totalAmount + action.item.price * action.item.amount;
+
+        //return true if item curr is same id of item we are adding
+        const existingCartItemIndex = state.items.findIndex(
+            (item) => item.id === action.item.id
+        );
+        //returns existingCartItem with the index
+        //will be null if not there
+        const existingCartItem = state.items[existingCartItemIndex];
+
+        let updatedItems;
+
+        if(existingCartItem){
+            const updatedItem = {
+                ...existingCartItem,
+                amount: existingCartItem.amount + action.item.amount
+            };
+            //copy existing items
+            updatedItems = [...state.items];
+            //take old item and overide it with updatedItem
+            updatedItems[existingCartItemIndex] = updatedItem;
+        } else{
+            // concat doesn't add to array, it return new array
+            updatedItems = state.items.concat(action.item);
+        }
+
         return {
             items: updatedItems,
             totalAmount: updatedTotAmount
