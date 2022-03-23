@@ -22,19 +22,22 @@ const MealItemForm = (props) => {
     };
 
     //ste prop is incremeant
-    return <form className={classes.form} onSubmit={submitHandler}>
+    return (
+    <form className={classes.form} onSubmit={submitHandler}>
         <Input 
+            ref={amountInputRef}
             label="Amount" 
             input={{
-            id: 'amount_' + props.id,
+            id: 'amount_' + props.id, //Creates a unique ID for each input
             type: 'number',
             min: '1',
-            max: '19',
+            max: '5',
             step: '1',
-            defaultValue: '1'
+            defaultValue: '1',
         }}/>
         <button>+ Add</button>
         {!amoutIsValid && <p>Please enter valid amount (1-5)</p>}
     </form>
+    );
 }
 export default MealItemForm;

@@ -30,16 +30,18 @@ const DUMMY_MEALS = [
 ];
 
 const AvailableMeals = () => {
+  //mapping to MealItem
   const mealsList = DUMMY_MEALS.map((meal) => (
     <MealItem
-      id={meal.id}
       key={meal.id}
+      id={meal.id}
       name={meal.name}
       description={meal.description}
       price={meal.price}
     />
   ));
 
+  //Wrapping each Meal within Card Component(just display children)
   return (
     <section className={classes.meals}>
       <Card>

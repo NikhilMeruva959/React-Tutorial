@@ -1,14 +1,15 @@
 import React from "react";
+
 import CartIcon from "../Cart/CartIcon";
 import classes from './HeaderCardButton.module.css';
 import { useContext } from "react";
 import CartContext from "../../store/cart-context";
 
 const HeaderCardButton = (props) => {
-    const cartctx = useContext(CartContext);
+    const cartCtx = useContext(CartContext);
 
     //Reduce alows you to transform array into single value
-    const numCartItems = cartctx.items.reduce((currNumber, item)=>{
+    const numCartItems = cartCtx.items.reduce((currNumber, item)=>{
         return currNumber+item.amount;
     }, 0);
 

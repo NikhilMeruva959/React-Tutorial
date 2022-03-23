@@ -4,18 +4,20 @@ import MealItemForm from "./MealItemForm";
 import { useContext } from "react";
 import CartContext from "../../../store/cart-context";
 
+//Making Individual Item Component
 const MealItem = (props) => {
-    //formatting price to 2 decimal places
-    const price = `$${props.price.toFixed(2)}`;
-
     const cartCtx = useContext(CartContext);
+
+    // Formatting price to 2 decimal places
+    // Using Template Literal to inject dynamic content ${}
+    const price = `$${props.price.toFixed(2)}`;
 
     const addToCartHandler = (amount) => {
         cartCtx.addItem({
             id: props.id,
             name: props.name,
             amount: amount,
-            price: props.price
+            price: props.price,
         });
     };
     
@@ -27,7 +29,7 @@ const MealItem = (props) => {
             <div className={classes.price}>{price}</div>
         </div>
         <div>
-            <MealItemForm onAddToCar={addToCartHandler}/>
+            <MealItemForm id={props.id} onAddToCart={addToCartHandler}/>
         </div>
     </li>
     );
