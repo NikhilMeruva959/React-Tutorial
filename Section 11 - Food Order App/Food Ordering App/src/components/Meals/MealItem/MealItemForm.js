@@ -5,14 +5,18 @@ import Input from "../../UI/Input";
 
 const MealItemForm = (props) => {
     const [amoutIsValid, setAmountIsValid] = useState(true);
+
+    //custom component using Ref
     const amountInputRef = useRef();
 
     const submitHandler = (event) => {
+        //make sure browser default reload doesnt happen
         event.preventDefault();
 
         const enteredAmount = amountInputRef.current.value;
         const enteredAmountNumber = +enteredAmount;
 
+        //enteredAmount.trim().length === 0 checks if empty
         if(enteredAmount.trim().length === 0 || enteredAmountNumber < 1 || enteredAmountNumber > 5){
             setAmountIsValid(false);
             return;

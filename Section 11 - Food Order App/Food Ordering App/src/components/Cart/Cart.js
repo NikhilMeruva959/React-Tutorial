@@ -32,6 +32,7 @@ const Cart = (props) => {
           name={item.name}
           amount={item.amount}
           price={item.price}
+          // .bind(null, item.id) - preconfigures a function for future execution and precinfigures the argument when it's being executed
           onRemove={cartItemRemoveHandler.bind(null, item.id)}
           onAdd={cartItemAddHandler.bind(null, item)}
         />
@@ -49,6 +50,7 @@ const Cart = (props) => {
         </div>
         <div className={classes.actions}>
           <button className={classes["button-alt"]} onClick={props.onClose}>Close</button>
+          {/* //Order button only if we have items */}
           {hasItems && <button className={classes.button}>Order</button>}
         </div>
     </Modal>

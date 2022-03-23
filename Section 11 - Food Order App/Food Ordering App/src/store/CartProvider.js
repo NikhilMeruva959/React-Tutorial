@@ -9,6 +9,7 @@ const defaultCardState = {
 
 const cartReducer = (state, action) => {
     if(action.type === 'ADD'){
+        // concat doesn't add to array, it return new array
         const updatedItems = state.items.concat(action.item);
         const updatedTotAmount = state.totalAmount + action.item.price * action.item.amount;
         return {
@@ -20,8 +21,10 @@ const cartReducer = (state, action) => {
 };
 
 const CartProvider = (props) => {
+    //The useReducer Hook is similar to the useState Hook.
+    // It allows for custom state logic.
     const [cartState, dispatchCartAction] = useReducer(cartReducer, defaultCardState);
-    
+
     const addItemToCartHandler = (item) => {
         dispatchCartAction({type: 'ADD', item:item});
     };
