@@ -19,7 +19,11 @@ function App() {
 
   return (
     <CartProvider>
+      {/* Rendering cart if cartShown is true */}
       {cartShown && <Cart onClose={hideCartHandler}/>}
+      {/* Testing: 
+      {!cartShown && <Header onShowCart={showCartHandler}/>} 
+      */}
       <Header onShowCart={showCartHandler}/>
       <main>
         <Meals/>

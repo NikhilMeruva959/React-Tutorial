@@ -23,6 +23,7 @@ const Cart = (props) => {
   //   </ul>
   // );
 
+  //useContext to map to CartItems
   const cartItems = (
     <ul className={classes['cart-items']}>
       {cartCtx.items.map((item) => (
@@ -38,6 +39,7 @@ const Cart = (props) => {
     </ul>
   );
 
+  // everything to Modal
   return (
     <Modal onClose={props.onClose}>
       {cartItems}
