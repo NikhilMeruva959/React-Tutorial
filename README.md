@@ -18,7 +18,7 @@
 - Was able to host it on [FireBase](https://www.youtube.com/watch?v=meofoNuK3vo) and learned basic [React Deployment](https://create-react-app.dev/docs/deployment/)
 
 ## Made a Food Ordering App
-![FoodOrderingApp]()
+![FoodOrderingApp](https://github.com/NikhilMeruva959/React-Tutorial/blob/master/Example%20Images/FoodOrderingApp.png)
 
 - Go check it out at: [React Food Ordering App](https://reactfoodorderingapp-b9f16.web.app/)
 - Worked with Hooks such as useState, useEffect, useRef, useReducer, and useContext to render conditional content
