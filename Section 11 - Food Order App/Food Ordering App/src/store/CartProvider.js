@@ -43,7 +43,7 @@ const cartReducer = (state, action) => {
 
         //return true if item curr is same id of item we are adding
         const existingCartItemIndex = state.items.findIndex(
-            (item) => item.id === action.item.id
+            (item) => item.id === action.id
         );
         //returns existingCartItem with the index
         //will be null if not there
@@ -54,16 +54,18 @@ const cartReducer = (state, action) => {
         let updatedItems;
 
         if(existingCartItem.amount===1){
+            //keep all items that dont have the action.id
+            // gives new array
             updatedItems = state.items.filter(item => item.id !== action.id);
         } else{
-            const updatedItem = {...existingCartItem, amount:existingCartItem.amount-1};
+            const updatedItem = {...existingCartItem, amount: existingCartItem.amount - 1};
             updatedItems = [...state.items];
             updatedItems[existingCartItemIndex] = updatedItem;
         }
 
         return {
             items: updatedItems,
-            totalAmount: updatedTotAmount,
+            totalAmount: updatedTotAmount
         };
     }
     return defaultCardState;
@@ -79,7 +81,7 @@ const CartProvider = (props) => {
     };
 
     const removeItemToCartHandler = (id) => {
-        dispatchCartAction({type: 'REMOVE', id:id})
+        dispatchCartAction({type: 'REMOVE', id:id});
     };
 
     const cartContext = {
